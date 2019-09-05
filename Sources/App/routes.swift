@@ -17,6 +17,10 @@ public func routes(_ router: Router) throws {
     router.get("json") { req in
         return Person(name: "Martin J. Lasek", age: 26)
     }
+    
+    router.get("view") { req -> Future<View> in
+        return try req.view().render("welcome")
+    }
 }
 
 /// Your class or struct must conform to `Content`
